@@ -24,8 +24,9 @@ author:
 informative:
   RFC3234:
   RFC6347:
-  draft-hardie-spud-use-cases:
-  draft-hildebrand-spud-prototype:
+  RFC7305:
+  I-D.hardie-spud-use-cases:
+  I-D.hildebrand-spud-prototype:
 
 --- abstract
 
@@ -55,21 +56,21 @@ This workshop report summarizes the contributions to and discussions at the work
 
 The outcomes of the workshop are discussed in {{outcomes}}, and discuss progress after the workshop toward each of the identified work items as of the time of publication of this report.
 
-# Current state of the Internet
+# Current state of the problem
 
-[EDITOR'S NOTE: This section is incomplete; see the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+[EDITOR'S NOTE: This section is missing. The plan is to summarize introduction level-setting presentation and discussion from the transcript and slides. Note that this work follows from ITAT {{RFC7305}}. Note also previous attempts at trying to solve the middlebox side of this problem. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers, slides, and transcripts in the meantime.]
 
 # Incentives for Stack Ossification and Evolution
 
-[EDITOR'S NOTE: This section is incomplete; see the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+[EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing on incentives - both those leading to the problem and that could be leveraged for deployment of new transports - from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
 # The Role and Rule of Middleboxes
 
-[EDITOR'S NOTE: This section is incomplete; see the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+[EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing primarily on middlebox aspects of the problem (i.e., the Monday morning session and follow-up discussion Tuesday) from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
 # Evolving the Transport Layer
 
-[EDITOR'S NOTE: This section is incomplete; see the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+[EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing primarily on transport evolution and evolvability (i.e., the Monday afternoon session and follow-up discussion Tuesday) from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
 # Outcomes
 
@@ -77,23 +78,23 @@ The outcomes of the workshop are discussed in {{outcomes}}, and discuss progress
 
 ## Minimal signaling for encapsulated transports
 
-Assuming that a way forward for transport evolution in user space would be encapsulation in UDP datagrams, the workshop identified the need for a facility built atop UDP to provide minimal signaling of the semantics of a flow that would otherwise be available in TCP: at the very least, indications of first and last packets in a flow to assist firewalls and NATs in policy decision and state maintenance. This facility could also provide minimal application-to-path and path-to-application signaling, though there was less agreement exactly what should or could be signaled here.
+Assuming that a way forward for transport evolution in user space would involve encapsulation in UDP datagrams, the workshop identified that it may be useful to have a facility built atop UDP to provide minimal signaling of the semantics of a flow that would otherwise be available in TCP: at the very least, indications of first and last packets in a flow to assist firewalls and NATs in policy decision and state maintenance. This facility could also provide minimal application-to-path and path-to-application signaling, though there was less agreement exactly what should or could be signaled here.
 
-It was also noted that, given the increasing deployment of encryption in the Internet, this facility should cooperate with DTLS {{RFC6347}} in order to selectively expose information about traffic flows where the transport headers and payload themselves are encrypted.
+We also noted that, given the increasing deployment of encryption in the Internet, this facility should cooperate with DTLS {{RFC6347}} in order to selectively expose information about traffic flows where the transport headers and payload themselves are encrypted. 
 
-To develop this concept further, it was decided to hold a non working group forming BoF session, SPUD (Substrate Protocol for User Datagrams), at the IETF 92 meeting in March in Dallas. A draft on use cases {{draft-hardie-spud-use-cases}} and a prototype protocol specification {{draft-hildebrand-spud-prototype}} were prepared following discussions at SEMI.
+To develop this concept further, it was decided to propose a non working group forming BoF session, SPUD (Substrate Protocol for User Datagrams), at the IETF 92 meeting in March in Dallas. A draft on use cases {{I-D.hardie-spud-use-cases}} and a prototype protocol specification {{I-D.hildebrand-spud-prototype} were prepared following discussions at SEMI. This BoF has been approved, with discussion on the spud mailing list (spud@ietf.org).
 
 ## Middlebox measurement
 
-[EDITOR'S NOTE: middlebox measurement bar BoF]
+Discussion about the impairments caused by middleboxes quickly identified the need to get more and better data about how prevelant certain types of impairments are in the network. It doesn't make much sense, for instance, to engineer complex workarounds for certain types of impairments into transport protocols if those impairments are relatively rare. There are dedicated measurement studies for certain types of impairment, but the workshop noted that prevalence data might be available from error logs from TCP stacks and applications on both clients and servers: these entities are in a position to know when attempts to use particular transport features failed, providing an opportunity to measure the network as a side effect of using it. Many clients already have a feature for sending these bug reports back to their developers. It was decided to hold an informal Bar BOF at the IETF 92 meeting in Dallas to discuss approaches to get aggregated data from these logs about potential middlebox impairment, focusing on common data formats and issues of preserving end-user privacy. [EDITOR'S NOTE should we put together a list for this effort?]
 
 ## Guidelines for middlebox deployment
 
 [EDITOR'S NOTE: potential IAB document following from {{RFC3234}}]
 
-## Additional Activities in the IETF
+## Additional Activities in the IETF and IAB
 
-[EDITOR'S NOTE: tsvarea presentation on transport protocol extensibility, tsvarea presentation on general UDP encapsulation considerations, appsarea presentation on the use of TLS/DTLS as middlebox modification and inspection prevention approach. ]
+[EDITOR'S NOTE: tsvarea presentation on transport protocol extensibility, tsvarea presentation on general UDP encapsulation considerations, appsarea presentation on the use of TLS/DTLS as middlebox modification and inspection prevention approach.]
 
 ## Additional Activities in Other Venues 
 
