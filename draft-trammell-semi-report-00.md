@@ -30,7 +30,7 @@ informative:
 
 --- abstract
 
-The Internet Architecture Board through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified
+The Internet Architecture Board (IAB) through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified
 
 --- middle
 
@@ -56,15 +56,19 @@ This workshop report summarizes the contributions to and discussions at the work
 
 The outcomes of the workshop are discussed in {{outcomes}}, and discuss progress after the workshop toward each of the identified work items as of the time of publication of this report.
 
-# Current state of the problem
+# The Problem in Review
 
-[EDITOR'S NOTE: This section is missing. The plan is to summarize introduction level-setting presentation and discussion from the transcript and slides. Note that this work follows from ITAT {{RFC7305}}. Note also previous attempts at trying to solve the middlebox side of this problem. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers, slides, and transcripts in the meantime.]
+[EDITOR'S NOTE: This section is missing. The plan is to summarize introduction level-setting presentation and discussion from the transcript and slides. Note that this work follows from ITAT {{RFC7305}}. Note also previous attempts at trying to solve the middlebox side of this problem. Cite previous and current IETF efforts in the space: MIDCOM, NSIS, BEHAVE, TRAM. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers, slides, and transcripts in the meantime.]
 
 # Incentives for Stack Ossification and Evolution
+
+The current situation is, of course, the the result of a variety of processes, and the convergence of incentives for network operators, content providers, network equipment vendors, application developers, operating system developers, and end users....
 
 [EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing on incentives - both those leading to the problem and that could be leveraged for deployment of new transports - from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
 # The Role and Rule of Middleboxes
+
+Paths as first-order things; path API. 
 
 [EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing primarily on middlebox aspects of the problem (i.e., the Monday morning session and follow-up discussion Tuesday) from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
