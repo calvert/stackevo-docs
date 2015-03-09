@@ -12,14 +12,20 @@ author:
     ins: B. Trammell
     name: Brian Trammell
     role: editor
-    organization: ETH Zurich
+    org: ETH Zurich
     email: ietf@trammell.ch
+    street: Gloriastrasse 35
+    city: 8092 Zurich
+    country: Switzerland
   -
     ins: M. Kuehlewind
     name: Mirja Kuehlewind
     role: editor
     organization: ETH Zurich
     email: mirja.kuehlewind@tik.ee.ethz.ch
+    street: Gloriastrasse 35
+    city: 8092 Zurich
+    country: Switzerland
 
 informative:
   RFC3234:
@@ -38,7 +44,7 @@ The Internet Architecture Board (IAB) through its IP Stack Evolution program, th
 
 The transport layer of the Internet has becomed ossified, squeezed between narrow interfaces (from BSD sockets to pseudo-transport over HTTPS) and increasing in-network modification of traffic by middleboxes that make assumptions about the protocols running through them. This ossification makes it difficult to innovate in the transport layer, through the deployment of new protocols or the extension of existing ones. At the same time, emerging applications require functionality that existing protocols can provide only inefficiently, if at all.
 
-To begin to address this problem, the IAB, within the scope of its IP Stack Evolution Program, organized a workshop to discuss approaches to de-ossifying transport, especially with respect to interactions with middleboxes and new methods for implementing transport protocols. Recognizing that the end-to-end principle has long been compromised, we start with the fundamental question of matching paths through the Internet with certain characteristics to application and transport requirements. 
+To begin to address this problem, the IAB, within the scope of its IP Stack Evolution Program, organized a workshop to discuss approaches to de-ossifying transport, especially with respect to interactions with middleboxes and new methods for implementing transport protocols. Recognizing that the end-to-end principle has long been compromised, we start with the fundamental question of matching paths through the Internet with certain characteristics to application and transport requirements.
 
 We posed the following questions in the call for papers: Which paths through the Internet are actually available to applications? Which transports can be used over these paths? How can applications cooperate with network elements to improve path establishment and discovery? Can common transport functionality and standardization help application developers to implement and deploy such approaches in today’s Internet? Could cooperative approaches give us a way to rebalance the Internet back toward its end-to-end roots?
 
@@ -68,7 +74,7 @@ The current situation is, of course, the the result of a variety of processes, a
 
 # The Role and Rule of Middleboxes
 
-Paths as first-order things; path API. 
+Paths as first-order things; path API.
 
 [EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing primarily on middlebox aspects of the problem (i.e., the Monday morning session and follow-up discussion Tuesday) from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
@@ -84,7 +90,7 @@ Paths as first-order things; path API.
 
 Assuming that a way forward for transport evolution in user space would involve encapsulation in UDP datagrams, the workshop identified that it may be useful to have a facility built atop UDP to provide minimal signaling of the semantics of a flow that would otherwise be available in TCP: at the very least, indications of first and last packets in a flow to assist firewalls and NATs in policy decision and state maintenance. This facility could also provide minimal application-to-path and path-to-application signaling, though there was less agreement exactly what should or could be signaled here.
 
-We also noted that, given the increasing deployment of encryption in the Internet, this facility should cooperate with DTLS {{RFC6347}} in order to selectively expose information about traffic flows where the transport headers and payload themselves are encrypted. 
+We also noted that, given the increasing deployment of encryption in the Internet, this facility should cooperate with DTLS {{RFC6347}} in order to selectively expose information about traffic flows where the transport headers and payload themselves are encrypted.
 
 To develop this concept further, it was decided to propose a non working group forming BoF session, SPUD (Substrate Protocol for User Datagrams), at the IETF 92 meeting in March in Dallas. A draft on use cases {{I-D.hardie-spud-use-cases}} and a prototype protocol specification {{I-D.hildebrand-spud-prototype} were prepared following discussions at SEMI. This BoF has been approved, with discussion on the spud mailing list (spud@ietf.org).
 
@@ -100,7 +106,7 @@ Discussion about the impairments caused by middleboxes quickly identified the ne
 
 [EDITOR'S NOTE: tsvarea presentation on transport protocol extensibility, tsvarea presentation on general UDP encapsulation considerations, appsarea presentation on the use of TLS/DTLS as middlebox modification and inspection prevention approach.]
 
-## Additional Activities in Other Venues 
+## Additional Activities in Other Venues
 
 [EDITOR'S NOTE: informal liaison to ETSI NFV ]
 
@@ -117,4 +123,3 @@ The IAB thanks the SEMI Program Committee: Brian Trammell, Mirja Kuehlewind, Joe
 The following people attended the SEMI workshop:
 
 Aaron Yi Ding, Aaron Falk, Barry Leiba, Benoit Donnet, Bob Briscoe, Brandon Williams, Ken Calvert, Costin Raiciu, Colin Perkins, David Black, Dave Thaler, Dan Wing, Felipe Huici, Mat Ford, Gorry Fairhurst, Russ Housely, Christian Huitema, Brian Trammell, Joe Hildebrand, Jana Ivengar, Lars Eggert, Eliot Lear, Marc Blanchet, Mary Barns, Michael Welzl, Mirja Kuehlewind, Martin Stiemerling, Miroslav Ponec, Erik Nordmark, Philipp Schmidt, Bernhard Plattner, Richard Barnes, Spencer Dawkins, Szilveszter Nadas, Ted Hardie, Dan Wing, and Xing Li. Additionally, Eric Rescorla and Stuart Cheshire contributed to the workshop but were unable to attend.
-
