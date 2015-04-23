@@ -29,6 +29,7 @@ author:
 
 informative:
   RFC3234:
+  RFC5218:
   RFC6347:
   RFC7305:
   I-D.hardie-spud-use-cases:
@@ -60,19 +61,25 @@ Topics for contributions in the call for papers were identified as follows:
 - Economic considerations and incentives for cooperation in middlebox deployment
 - We will explicitly focus on approaches that are incrementally deployable within the present Internet.
 
+The SEMI workshop followed in part from the IAB's longer term interest in the evolution of the Internet and the adoption of Internet protocols, including the Internet Technology Adoption and Transition workshop {{RFC7305}}, "What Makes for a Successful Protocol" {{RFC5218}}, back to  Deering's "Watching the Waist of the Protocol Hourglass" at IETF 51 in 2001 and before.
+
 ## Organization of this report
 
 This workshop report summarizes the contributions to and discussions at the workshop, organized by topic. We starting with a summary of the current state of the Internet, and explore the incentives which have made it that way and the role of incentives in evolution. Many contributions were broadly split into two areas: middlebox measurement, classification, and approaches to defense against middlebox modification of packets; and approaches to support transport evolution. All accepted position papers are available at https://www.iab.org/activities/workshops/semi/.
 
 The outcomes of the workshop are discussed in {{outcomes}}, and discuss progress after the workshop toward each of the identified work items as of the time of publication of this report.
 
-# The Problem in Review
+# The Situation in Review
 
-[EDITOR'S NOTE: This section is missing. The plan is to summarize introduction level-setting presentation and discussion from the transcript and slides. Note that this work follows from ITAT {{RFC7305}}. Note also previous attempts at trying to solve the middlebox side of this problem. Cite previous and current IETF efforts in the space: MIDCOM, NSIS, BEHAVE, TRAM. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers, slides, and transcripts in the meantime.]
+At the time of Deering's talk in 2001, network address translation (NAT) was identified as the key challenge to the Internet architecture. Since then, the NAT traversal problem has been largely solved, but the boxes in the middle are getting smarter and more varied.
+
+SEMI and the Stack Evolution program in general are by far not the first attempt to solve the problems caused by middlebox interference in the end to end model. Just within the IETF the MIDCOM, NSIS, and BEHAVE efforts have addressed this problem, and the TRAM working group is updating the NAT traversal outcomes of MIDCOM to reflect current reality.
+
+We believe we have an opportunity to improve the situation in the present, however, due to a convergence of forces. While the  tussle between security and middleboxes is not new, the accelerating deployment of cryptography for integrity and confidentiality makes many packet inspection and packet modification operations obsolete, creating pressure to improve the situation. There is also new energy in the IETF around work which requires transport layer flexibility we're not sure we have (e.g. WebRTC) as well as around flexibility at the transport interface (TAPS). 
 
 # Incentives for Stack Ossification and Evolution
 
-The current situation is, of course, the the result of a variety of processes, and the convergence of incentives for network operators, content providers, network equipment vendors, application developers, operating system developers, and end users....
+The current situation is, of course, the the result of a variety of processes, and the convergence of incentives for network operators, content providers, network equipment vendors, application developers, operating system developers, and end users. Moore's Law makes it easier to deploy more processing on-path, network operators need to find ways to add value, enterprises find it more scaleable to deploy functionality in-network than on endpoints, and middleboxes are something vendors can vend. This trend increases ossification of the network stack.
 
 [EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing on incentives - both those leading to the problem and that could be leveraged for deployment of new transports - from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
 
