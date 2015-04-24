@@ -36,7 +36,25 @@ informative:
   I-D.hildebrand-spud-prototype:
   I-D.huitema-tls-dtls-as-subtransport:
   I-D.trammell-stackevo-newtea:
-
+  huitema-semi:
+    title: The Secure Transport Tussle (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_huitema.pdf)
+    author:
+      ins: C. Huitema
+      name: Christian Huitema
+      org: Microsoft
+    date: January 2015
+  edeline-semi:
+    title: On a Middlebox Classification (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_edeline.pdf)
+    author:
+      -
+        ins: K. Edeline
+        name: Korian Edeline
+        org: Univ. Liege
+      -
+        ins: B. Donnet
+        name: Benoit Donnet
+        org: Univ. Liege
+    date: January 2015
 --- abstract
 
 The Internet Architecture Board (IAB) through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified by the workshop.
@@ -61,33 +79,91 @@ Topics for contributions in the call for papers were identified as follows:
 - Economic considerations and incentives for cooperation in middlebox deployment
 - We will explicitly focus on approaches that are incrementally deployable within the present Internet.
 
-The SEMI workshop followed in part from the IAB's longer term interest in the evolution of the Internet and the adoption of Internet protocols, including the Internet Technology Adoption and Transition workshop {{RFC7305}}, "What Makes for a Successful Protocol" {{RFC5218}}, back to  Deering's "Watching the Waist of the Protocol Hourglass" at IETF 51 in 2001 and before.
+The SEMI workshop followed in part from the IAB's longer term interest in the
+evolution of the Internet and the adoption of Internet protocols, including
+the Internet Technology Adoption and Transition workshop {{RFC7305}}, "What
+Makes for a Successful Protocol" {{RFC5218}}, back to Deering's "Watching the
+Waist of the Protocol Hourglass" at IETF 51 in 2001 and before.
 
 ## Organization of this report
 
-This workshop report summarizes the contributions to and discussions at the workshop, organized by topic. We starting with a summary of the current state of the Internet, and explore the incentives which have made it that way and the role of incentives in evolution. Many contributions were broadly split into two areas: middlebox measurement, classification, and approaches to defense against middlebox modification of packets; and approaches to support transport evolution. All accepted position papers are available at https://www.iab.org/activities/workshops/semi/.
+This workshop report summarizes the contributions to and discussions at the
+workshop, organized by topic. We started with a summary of the current
+situation with respect to stack ossification, and explored the incentives which
+have made it that way and the role of incentives in evolution. Many
+contributions were broadly split into two areas: middlebox measurement,
+classification, and approaches to defense against middlebox modification of
+packets; and approaches to support transport evolution. All accepted position
+papers are available at https://www.iab.org/activities/workshops/semi/.
 
 The outcomes of the workshop are discussed in {{outcomes}}, and discuss progress after the workshop toward each of the identified work items as of the time of publication of this report.
 
 # The Situation in Review
 
-At the time of Deering's talk in 2001, network address translation (NAT) was identified as the key challenge to the Internet architecture. Since then, the NAT traversal problem has been largely solved, but the boxes in the middle are getting smarter and more varied.
+At the time of Deering's talk in 2001, network address translation (NAT) was
+identified as the key challenge to the Internet architecture. Since then, the
+NAT traversal problem has been largely solved, but the boxes in the middle are
+getting smarter and more varied.
 
-SEMI and the Stack Evolution program in general are by far not the first attempt to solve the problems caused by middlebox interference in the end to end model. Just within the IETF the MIDCOM, NSIS, and BEHAVE efforts have addressed this problem, and the TRAM working group is updating the NAT traversal outcomes of MIDCOM to reflect current reality.
+SEMI and the Stack Evolution program in general are by far not the first
+attempt to solve the problems caused by middlebox interference in the end to
+end model. Just within the IETF the MIDCOM, NSIS, and BEHAVE efforts have
+addressed this problem, and the TRAM working group is updating the NAT
+traversal outcomes of MIDCOM to reflect current reality.
 
-We believe we have an opportunity to improve the situation in the present, however, due to a convergence of forces. While the  tussle between security and middleboxes is not new, the accelerating deployment of cryptography for integrity and confidentiality makes many packet inspection and packet modification operations obsolete, creating pressure to improve the situation. There is also new energy in the IETF around work which requires transport layer flexibility we're not sure we have (e.g. WebRTC) as well as around flexibility at the transport interface (TAPS). 
+We believe we have an opportunity to improve the situation in the present,
+however, due to a convergence of forces. While the tussle between security and
+middleboxes is not new, the accelerating deployment of cryptography for
+integrity and confidentiality makes many packet inspection and packet
+modification operations obsolete, creating pressure to improve the situation.
+There is also new energy in the IETF around work which requires transport
+layer flexibility we're not sure we have (e.g. WebRTC) as well as around
+flexibility at the transport interface (TAPS).
 
 # Incentives for Stack Ossification and Evolution
 
-The current situation is, of course, the the result of a variety of processes, and the convergence of incentives for network operators, content providers, network equipment vendors, application developers, operating system developers, and end users. Moore's Law makes it easier to deploy more processing on-path, network operators need to find ways to add value, enterprises find it more scaleable to deploy functionality in-network than on endpoints, and middleboxes are something vendors can vend. This trend increases ossification of the network stack.
+The current situation is, of course, the the result of a variety of processes,
+and the convergence of incentives for network operators, content providers,
+network equipment vendors, application developers, operating system
+developers, and end users. Moore's Law makes it easier to deploy more
+processing on-path, network operators need to find ways to add value,
+enterprises find it more scaleable to deploy functionality in-network than on
+endpoints, and middleboxes are something vendors can vend. This trend
+increases ossification of the network stack.
 
-[EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing on incentives - both those leading to the problem and that could be leveraged for deployment of new transports - from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+Any effort to reduce this ossification in order to make it easier to evolve
+the transport stack, then, must consider the incentives to deployment of new
+approaches by each of these actors.
+
+As Christian Huitema {{huitema-semi}} pointed out, encryption provides a
+powerful incentive here: putting a transport protocol atop a cryptographic
+protocol atop UDP resets the transport versus middlebox tussle by making
+inspection and modification above the encryption and demux layer impossible.
+Any transport evolution strategy using this approach must also deliver better
+performance or functionality (e.g. setup latency) than existing approaches
+while being as or more deployable than these approaches.
+
+Indeed, significant positive net value at each organization where change is
+required -- operators, application developers, equipment vendors, enterprise
+and private users -- is best to drive deployment of a new protocol, said Dave
+Thaler, pointing to {{RFC5218}}. All tussles in networking stem from
+conflicting incentives unavoidable in a free market. For upper layer
+protocols, incentives tend to favor protocols that work anywhere, use the most
+efficient mechanism that works, and are as simple as possible from a
+implementation, maintenance, and management standpoint. For lower layer
+protocols, incentives tend toward ignoring and or disabling optional features,
+as there is a positive feedback cycle between being rarely used and rarely
+implemented.
+
+[EDITOR'S NOTE: check transcript for points of discussion here]
 
 # The Role and Rule of Middleboxes
 
-Paths as first-order things; path API.
+Middleboxes are commonplace in the Internet and constrain the ability to deploy new protocols and protocol extensions. Engineering around this problem requires a "bestiary" of middleboxes, a classification of which kinds of impairments middleboxes cause and how often, according to Benoit Donnet {{edeline-semi}}.
 
-[EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing primarily on middlebox aspects of the problem (i.e., the Monday morning session and follow-up discussion Tuesday) from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+[EDITOR'S NOTE: a paragraph on Hardie, a paragraph on Huici]
+
+[EDITOR'S NOTE: check transcript for points of discussion here]
 
 # Evolving the Transport Layer
 
@@ -142,7 +218,7 @@ Discussion contiunes on the spud mailing list (spud@ietf.org). The UDP shim laye
 ## Middlebox measurement
 
 Discussion about the impairments caused by middleboxes quickly identified the
-need to get more and better data about how prevelant certain types of
+need to get more and better data about how prevalent certain types of
 impairments are in the network. It doesn't make much sense, for instance, to
 engineer complex workarounds for certain types of impairments into transport
 protocols if those impairments are relatively rare. There are dedicated
@@ -167,19 +243,35 @@ protocol engineering to the data that currently is or can easily be collected.
 
 A mailing list (hops@ietf.org) has been established to continue discussion.
 
-## Guidelines for middlebox design deployment
+## Guidelines for middlebox design and deployment
 
-The workshop identified the potential to update {{RFC3234}} to provide guidelines...
+The workshop identified the potential to update {{RFC3234}} to provide
+guidelines on middlebox design, implementation, and deployment in order to
+reduce inadvertent or accidental impact on stack ossification in existing and
+new middlebox designs. This document will be produced by the IAB IP Stack
+Evolution program, drawing in part on the work of the BEHAVE working group,
+and on experience with STUN, TURN, and ICE, all of which focus more
+specifically on network address translation.
 
-[EDITOR'S NOTE: potential IAB document following from {{RFC3234}}]
+## Architectural guidelines for transport stack evolution
+
+The workshop identified the need for architectural guidance in general for
+transport stack evolution: tradeoffs between user- and kernel-space
+implementations, tradeoffs in and considerations for encapsulations
+(especially UDP), tradeoffs in implicit versus explicit interaction with
+devices along the path, and so on. This document will be produced by the IAB
+IP Stack Evolution Program; the new transport encapsulations draft
+{{I-D.trammell-stackevo-newtea}} may evolve into the basis for this work.
 
 ## Additional Activities in the IETF and IAB
 
-[EDITOR'S NOTE: tsvarea presentation on transport protocol extensibility, tsvarea presentation on general UDP encapsulation considerations, appsarea presentation on the use of TLS/DTLS as middlebox modification and inspection prevention approach.]
+The workshop identified the need to socialize ideas connected to transport stack evolution within the IETF community, including presentations in the transport and applications open area meetings on protocol extensibility, UDP encapsulation considerations, and the application of TLS/DTLS in order to prevent middlebox meddling. Much of the energy coming out of the workshop went into the SPUD BoF (see {{minimal-signaling-for-encapsulated-transports}}), so these presentations will be given at future meetings.
+
+There are also clear interactions between the future work following the SEMI workshop and the IAB's Privacy and Security Program; Privacy and Security program members will be encouraged to follow developments in transport stack evolution to help especially with privacy implications of the outcomes of the workshop.
 
 ## Additional Activities in Other Venues
 
-[EDITOR'S NOTE: informal liaison to ETSI NFV ]
+Bob Briscoe did an informal liaison of the SEMI workshop discussions to the ETSI Network Function Virtualization (NFV) Industry Specification Group (ISG) following the workshop, focusing as well on the implications of end to end encryption on the present and future of in-network functionality. In the ISG's Security Working Group, he proposed text for best practices on middlebox access to data in the presence of end to end encryption.
 
 # Security Considerations
 
@@ -187,7 +279,11 @@ This document presents no security considerations.
 
 # Acknowledgments
 
-The IAB thanks the SEMI Program Committee: Brian Trammell, Mirja Kuehlewind, Joe Hildebrand, Eliot Lear, Mat Ford, Gorry Fairhurst, and Martin Stiemerling. We additionally thank Prof. Dr. Bernhard Plattner of the Communication Systems Group at ETH for hosting the workshop, and the Internet Society for its support.
+The IAB thanks the SEMI Program Committee: Brian Trammell, Mirja Kuehlewind,
+Joe Hildebrand, Eliot Lear, Mat Ford, Gorry Fairhurst, and Martin Stiemerling.
+We additionally thank Prof. Dr. Bernhard Plattner of the Communication Systems
+Group at ETH for hosting the workshop, and the Internet Society for its
+support.
 
 # Attendees
 
