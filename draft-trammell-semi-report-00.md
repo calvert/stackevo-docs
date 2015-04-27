@@ -69,7 +69,7 @@ To begin to address this problem, the IAB, within the scope of its IP Stack Evol
 
 We posed the following questions in the call for papers: Which paths through the Internet are actually available to applications? Which transports can be used over these paths? How can applications cooperate with network elements to improve path establishment and discovery? Can common transport functionality and standardization help application developers to implement and deploy such approaches in today’s Internet? Could cooperative approaches give us a way to rebalance the Internet back toward its end-to-end roots?
 
-Topics for contributions in the call for papers were identified as follows:
+Topics for contributions in the call for papers with a focus on approaches that are incrementally deployable within the present Internet were identified as follows:
 
 - Development and deployment of transport-like features in application-layer protocols
 - Methods for discovery of path characteristics and protocol availability along a path
@@ -77,7 +77,6 @@ Topics for contributions in the call for papers were identified as follows:
 - Methods for NAT and middlebox traversal in the establishment of end-to-end paths
 - Mechanisms for cooperative path-endpoint signaling, and lessons learned from existing approaches
 - Economic considerations and incentives for cooperation in middlebox deployment
-- We will explicitly focus on approaches that are incrementally deployable within the present Internet.
 
 The SEMI workshop followed in part from the IAB's longer term interest in the
 evolution of the Internet and the adoption of Internet protocols, including
@@ -122,7 +121,7 @@ flexibility at the transport interface (TAPS).
 
 # Incentives for Stack Ossification and Evolution
 
-The current situation is, of course, the the result of a variety of processes,
+The current situation is, of course, the result of a variety of processes,
 and the convergence of incentives for network operators, content providers,
 network equipment vendors, application developers, operating system
 developers, and end users. Moore's Law makes it easier to deploy more
@@ -161,13 +160,23 @@ implemented.
 
 Middleboxes are commonplace in the Internet and constrain the ability to deploy new protocols and protocol extensions. Engineering around this problem requires a "bestiary" of middleboxes, a classification of which kinds of impairments middleboxes cause and how often, according to Benoit Donnet {{edeline-semi}}.
 
-[EDITOR'S NOTE: a paragraph on Hardie, a paragraph on Huici]
+Even though the trend towards Network Function Visualization (NFV) allows for faster update-cycle of middleboxes and thereby more flexibility, the function provided by middleboxes will stay. In fact Service Chaining may lead to more and more add-ons to address and management a problem in the network which might further increase the complexity of network management. Ted Hardie warns that each instance may add a new queue and may increase the bufferbloat problem which is contra-productive for new emerging latency-sensitive applications. However, as further discussed at the workshop this new felexibilty also provides a chance to move functionalitly back to the end host and/or implemenent more appropriate in-network functionality that could benefit from additional information in application and path characteritics but might also require trust (domains) between different actors. (Especially in mobile networks an increasing trend of in-network functionality can be observed.)
 
+Costin Raiciu states that middleboxes make the Internet unpredictable leading to a trade-off between efficiency and reachability. While constructive cooperation with middleboxes to establish a clear contract between the network and the end might be one approach to address this challenge, the alternative to force this contract might lead to extensive tunneling as illustrated by the "ninja tunneling" approach.
+ 
 [EDITOR'S NOTE: check transcript for points of discussion here]
 
 # Evolving the Transport Layer
 
-[EDITOR'S NOTE: This section is missing. The plan is to summarize presentation and discussion focusing primarily on transport evolution and evolvability (i.e., the Monday afternoon session and follow-up discussion Tuesday) from the transcript and slides. See the workshop page at https://www.iab.org/activities/workshops/semi/ for papers and transcripts in the meantime.]
+For evolution in the transport layer itself various proposals have been discussed, reaching from the development of new protocols (potentially as user-level stacks) encapsulated in UDP as a transport identification sub-header to the use of TCP as a substrate where the semantics of TCP are relaxed (e.g. regarding reliability, ordering, flow control etc.) and a more flexible API is provided to the application. 
+
+As experienced by David Black UDP encapsulation has to be adapted and separately discussed for every use case which can be a long (and painful) process. UDP encapsulation can be an approach to develop more specialized protocols than helps to address special needs of a certain applications, however, as presented by Brian Trammell and brought in by Stuart Cheshire just designing a new protocol instead of fixing/extending TCP might not always solve the problem.
+
+To address the extensibility problem of TCP, Inner Space was proposed by Bob Briscoe. In Inner Space the general principle is applied to extend the layer header within layer X+1 by proposing additional header/option space in the TCP payload that can not be seen by middleboxes. 
+
+Further instead of only focusing on those cases there new extensions and protocols are not deployable, Micheal Welzl points out that there are also a lot of paths in the network that are not ossified. To enable deployment on these paths an end host would need to probe or use a happy-eyeball-like approach and potentially fallback. The TAPS working group implements the first step to decouples applications from transport protocols allowing for the needed flexibility in the transport layer.
+
+[EDITOR'S NOTE: check transcript for points of discussion here]
 
 # Outcomes
 
@@ -262,6 +271,8 @@ implementations, tradeoffs in and considerations for encapsulations
 devices along the path, and so on. This document will be produced by the IAB
 IP Stack Evolution Program; the new transport encapsulations draft
 {{I-D.trammell-stackevo-newtea}} may evolve into the basis for this work.
+
+Further due to the underlying discuss on trust and a needed "balance of power" between the end hosts and the network, the workshop participants concluded that it is neccessary to define cryptographic protocol based approaches to enable transport protocol extensibility.
 
 ## Additional Activities in the IETF and IAB
 
