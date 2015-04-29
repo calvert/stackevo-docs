@@ -2,7 +2,7 @@
 title: IAB Workshop on Stack Evolution in a Middlebox Internet (SEMI) Report
 abbrev: SEMI Workshop
 docname: draft-trammell-semi-report-00
-date: 2015-4-16
+date: 2015-4-29
 category: info
 ipr: trust200902
 
@@ -163,16 +163,16 @@ Middleboxes are commonplace in the Internet and constrain the ability to deploy 
 Even though the trend towards Network Function Visualization (NFV) allows for faster update-cycle of middleboxes and thereby more flexibility, the function provided by middleboxes will stay. In fact Service Chaining may lead to more and more add-ons to address and management a problem in the network which might further increase the complexity of network management. Ted Hardie warns that each instance may add a new queue and may increase the bufferbloat problem which is contra-productive for new emerging latency-sensitive applications. However, as further discussed at the workshop this new felexibilty also provides a chance to move functionalitly back to the end host and/or implemenent more appropriate in-network functionality that could benefit from additional information in application and path characteritics but might also require trust (domains) between different actors. (Especially in mobile networks an increasing trend of in-network functionality can be observed.)
 
 Costin Raiciu states that middleboxes make the Internet unpredictable leading to a trade-off between efficiency and reachability. While constructive cooperation with middleboxes to establish a clear contract between the network and the end might be one approach to address this challenge, the alternative to force this contract might lead to extensive tunneling as illustrated by the "ninja tunneling" approach.
- 
+
 [EDITOR'S NOTE: check transcript for points of discussion here]
 
 # Evolving the Transport Layer
 
-For evolution in the transport layer itself various proposals have been discussed, reaching from the development of new protocols (potentially as user-level stacks) encapsulated in UDP as a transport identification sub-header to the use of TCP as a substrate where the semantics of TCP are relaxed (e.g. regarding reliability, ordering, flow control etc.) and a more flexible API is provided to the application. 
+For evolution in the transport layer itself various proposals have been discussed, reaching from the development of new protocols (potentially as user-level stacks) encapsulated in UDP as a transport identification sub-header to the use of TCP as a substrate where the semantics of TCP are relaxed (e.g. regarding reliability, ordering, flow control etc.) and a more flexible API is provided to the application.
 
 As experienced by David Black UDP encapsulation has to be adapted and separately discussed for every use case which can be a long (and painful) process. UDP encapsulation can be an approach to develop more specialized protocols than helps to address special needs of a certain applications, however, as presented by Brian Trammell and brought in by Stuart Cheshire just designing a new protocol instead of fixing/extending TCP might not always solve the problem.
 
-To address the extensibility problem of TCP, Inner Space was proposed by Bob Briscoe. In Inner Space the general principle is applied to extend the layer header within layer X+1 by proposing additional header/option space in the TCP payload that can not be seen by middleboxes. 
+To address the extensibility problem of TCP, Inner Space was proposed by Bob Briscoe. In Inner Space the general principle is applied to extend the layer header within layer X+1 by proposing additional header/option space in the TCP payload that can not be seen by middleboxes.
 
 Further instead of only focusing on those cases there new extensions and protocols are not deployable, Micheal Welzl points out that there are also a lot of paths in the network that are not ossified. To enable deployment on these paths an end host would need to probe or use a happy-eyeball-like approach and potentially fallback. The TAPS working group implements the first step to decouples applications from transport protocols allowing for the needed flexibility in the transport layer.
 
