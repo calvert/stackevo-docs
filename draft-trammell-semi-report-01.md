@@ -2,7 +2,7 @@
 title: IAB Workshop on Stack Evolution in a Middlebox Internet (SEMI) Report
 abbrev: SEMI Workshop
 docname: draft-trammell-semi-report-01
-date: 2015-4-29
+date: 2015-5-11
 category: info
 ipr: trust200902
 
@@ -57,12 +57,7 @@ informative:
     date: January 2015
 --- abstract
 
-The Internet Architecture Board (IAB) through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified by the workshop.
-
-Note that this document is a report on the proceedings of the
-workshop.  The views and positions documented in this report are
-those of the workshop participants and do not necessarily reflect IAB
-views and positions.
+The Internet Architecture Board (IAB) through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified by the workshop. The views and positions documented in this report are those of the workshop participants and do not necessarily reflect IAB views and positions.
 
 --- middle
 
