@@ -2,7 +2,7 @@
 title: Thoughts a New Transport Encapsulation Architecture
 abbrev: New TEA
 docname: draft-trammell-stackevo-newtea-01
-date: 2015-05-02
+date: 2015-05-07
 category: info
 ipr: trust200902
 
