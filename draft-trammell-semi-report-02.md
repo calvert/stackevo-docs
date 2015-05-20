@@ -224,7 +224,7 @@ Costin Raiciu {{raiciu-semi}} stated that middleboxes make the Internet unpredic
 
 For evolution in the transport layer itself various proposals have been discussed, reaching from the development of new protocols (potentially as user-level stacks) encapsulated in UDP as a transport identification sub-header to the use of TCP as a substrate where the semantics of TCP are relaxed (e.g. regarding reliability, ordering, flow control etc.) and a more flexible API is provided to the application.
 
-Discussion on evolution during the workshop divided amicably along two lines: working to fix the deployability of TCP extensions ("the TCP Liberation Front") versus working to build new encapulation-based mechanisms to allow wholly new protocols to be deployed ("the People's Front of UDP"). David Black {{black-semi}} pointed out that UDP encapsulation has to be adapted and separately discussed for every use case, which can be a long and painful process. UDP encapsulation can be an approach to develop more specialized protocols than helps to address special needs of certain applications. However, Stuart Cheshire {{cheshire-semi}} (as presented by Brian Trammell) pointed out that designing a new protocol instead of fixing/extending TCP might not always solve the problem.
+Discussion on evolution during the workshop divided amicably along two lines: working to fix the deployability of TCP extensions ("the TCP Liberation Front") versus working to build new encapulation-based mechanisms to allow wholly new protocols to be deployed ("the People's Front of UDP"). David Black {{black-semi}} pointed out that UDP encapsulation has to be adapted and separately discussed for every use case, which can be a long and painful process. UDP encapsulation can be an approach to develop more specialized protocols that helps to address special needs of certain applications. However, Stuart Cheshire {{cheshire-semi}} (as presented by Brian Trammell) pointed out that designing a new protocol instead of fixing/extending TCP might not always solve the problem.
 
 To address the extensibility problem of TCP, Bob Briscoe proposed Inner Space {{briscoe-semi}}. Here, the general principle is to extend layer X's header within layer X+1; in the case of TCP, additional TCP header and option space is provided within the TCP payload, such that it cannot presently be inspected and modified by middleboxes.
 
@@ -269,10 +269,10 @@ other entities. Basic transport over the substrate must continue working even
 if signaling is ignored or stripped, to support incremental deployment. These restrictions on vocabulary are discussed further in {{I-D.trammell-stackevo-newtea}}.
 
 There was much interest in the room in continuing work on an approach like the
-one under discussion. While it was relatively clear that the state of the
-discussion and prototyping activity now is not yet mature enough for
-standardization within an IETF working group, it is not clear in what venue
-the work should continue.
+one under discussion. It was relatively clear that the state of the discussion
+and prototyping activity now is not yet   mature enough for standardization
+within an IETF working group. An appropriate venue for continuing the work
+remains unclear.
 
 Discussion contiunes on the spud mailing list (spud@ietf.org). The UDP shim layer prototype described by {{I-D.hildebrand-spud-prototype}}.
 
@@ -346,7 +346,7 @@ The IAB thanks the SEMI Program Committee: Brian Trammell, Mirja Kuehlewind,
 Joe Hildebrand, Eliot Lear, Mat Ford, Gorry Fairhurst, and Martin Stiemerling.
 We additionally thank Prof. Dr. Bernhard Plattner of the Communication Systems
 Group at ETH for hosting the workshop, and the Internet Society for its
-support.
+support. Thanks to Suzanne Woolf for the feedback.
 
 # Attendees
 
