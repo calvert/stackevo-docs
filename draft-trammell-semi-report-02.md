@@ -59,8 +59,8 @@ informative:
       date: January 2015
 
   deering-plenary:
-      title: Watching the Waist of the Protocol Hourglass
-      (https://www.ietf.org/proceedings/51/slides/plenary-1/)
+      title: "Watching the Waist of the Protocol Hourglass
+      (https://www.ietf.org/proceedings/51/slides/plenary-1)"
       author:
         -
           ins: S. Deering
