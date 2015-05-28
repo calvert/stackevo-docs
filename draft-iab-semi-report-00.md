@@ -1,8 +1,8 @@
 ---
 title: IAB Workshop on Stack Evolution in a Middlebox Internet (SEMI) Report
 abbrev: SEMI Workshop
-docname: draft-trammell-semi-report-01
-date: 2015-5-19
+docname: draft-iab-semi-report-00
+date: 2015-5-28
 category: info
 ipr: trust200902
 

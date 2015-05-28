@@ -5,11 +5,11 @@
 Network Working Group                                   B. Trammell, Ed.
 Internet-Draft                                        M. Kuehlewind, Ed.
 Intended status: Informational                                ETH Zurich
-Expires: November 20, 2015                                  May 19, 2015
+Expires: November 29, 2015                                  May 28, 2015
 
 
  IAB Workshop on Stack Evolution in a Middlebox Internet (SEMI) Report
-                     draft-trammell-semi-report-01
+                        draft-iab-semi-report-00
 
 Abstract
 
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 20, 2015.
+   This Internet-Draft will expire on November 29, 2015.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 1]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 1]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -109,7 +109,7 @@ Copyright Notice
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 2]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 2]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -165,7 +165,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 3]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 3]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -221,7 +221,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 4]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 4]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -277,7 +277,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 5]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 5]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -333,7 +333,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 6]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 6]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -389,7 +389,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 7]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 7]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -445,7 +445,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 8]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 8]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -501,7 +501,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015               [Page 9]
+Trammell & Kuehlewind   Expires November 29, 2015               [Page 9]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -557,7 +557,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015              [Page 10]
+Trammell & Kuehlewind   Expires November 29, 2015              [Page 10]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -565,7 +565,7 @@ Internet-Draft                SEMI Workshop                     May 2015
    [I-D.hildebrand-spud-prototype]
               Hildebrand, J. and B. Trammell, "Substrate Protocol for
               User Datagrams (SPUD) Prototype", draft-hildebrand-spud-
-              prototype-02 (work in progress), March 2015.
+              prototype-03 (work in progress), March 2015.
 
    [I-D.huitema-tls-dtls-as-subtransport]
               Huitema, C., Rescorla, E., and J. Jana, "DTLS as
@@ -573,9 +573,9 @@ Internet-Draft                SEMI Workshop                     May 2015
               subtransport-00 (work in progress), March 2015.
 
    [I-D.trammell-stackevo-newtea]
-              Trammell, B., "Thoughts on New Transport Encapsulation
-              Approaches", draft-trammell-stackevo-newtea-00 (work in
-              progress), March 2015.
+              Trammell, B., "Thoughts a New Transport Encapsulation
+              Architecture", draft-trammell-stackevo-newtea-01 (work in
+              progress), May 2015.
 
    [black-semi]
               Black, D., "UDP Encapsulation: Framework Considerations
@@ -613,7 +613,7 @@ Internet-Draft                SEMI Workshop                     May 2015
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015              [Page 11]
+Trammell & Kuehlewind   Expires November 29, 2015              [Page 11]
 
 Internet-Draft                SEMI Workshop                     May 2015
 
@@ -669,4 +669,4 @@ Authors' Addresses
 
 
 
-Trammell & Kuehlewind   Expires November 20, 2015              [Page 12]
+Trammell & Kuehlewind   Expires November 29, 2015              [Page 12]
