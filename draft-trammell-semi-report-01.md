@@ -1,8 +1,8 @@
 ---
 title: IAB Workshop on Stack Evolution in a Middlebox Internet (SEMI) Report
 abbrev: SEMI Workshop
-docname: draft-trammell-semi-report-00
-date: 2015-4-29
+docname: draft-trammell-semi-report-01
+date: 2015-5-19
 category: info
 ipr: trust200902
 
@@ -36,28 +36,80 @@ informative:
   I-D.hildebrand-spud-prototype:
   I-D.huitema-tls-dtls-as-subtransport:
   I-D.trammell-stackevo-newtea:
-  huitema-semi:
-    title: The Secure Transport Tussle (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_huitema.pdf)
-    author:
-      ins: C. Huitema
-      name: Christian Huitema
-      org: Microsoft
-    date: January 2015
+
+  black-semi:
+      title: "UDP Encapsulation: Framework Considerations (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_black.pdf)"
+      author:
+        -
+          ins: D. Black
+      date: January 2015
+
+  briscoe-semi:
+      title: Tunneling Through Inner Space (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_briscoe.pdf)
+      author:
+        -
+          ins: B. Briscoe
+      date: January 2015
+
+  cheshire-semi:
+      title: Restoring the Reputation of the Much-Maligned TCP (https://www.iab.org/wp-content/IAB-uploads/2015/01/semi2015-cheshire.pdf)
+      author:
+        -
+          ins: S. Cheshire
+      date: January 2015
+
   edeline-semi:
-    title: On a Middlebox Classification (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_edeline.pdf)
-    author:
-      -
-        ins: K. Edeline
-        name: Korian Edeline
-        org: Univ. Liege
-      -
-        ins: B. Donnet
-        name: Benoit Donnet
-        org: Univ. Liege
-    date: January 2015
+      title: On a Middlebox Classification (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_edeline.pdf)
+      author:
+        -
+          ins: K. Edeline
+          name: Korian Edeline
+          org: Univ. Liege
+        -
+          ins: B. Donnet
+          name: Benoit Donnet
+          org: Univ. Liege
+      date: January 2015
+
+  hardie-semi:
+      title: Network Function Virtualization and Path Character (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_hardie.pdf)
+      author:
+        -
+          ins: T. Hardie
+      date: January 2015
+
+  huitema-semi:
+      title: The Secure Transport Tussle (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_huitema.pdf)
+      author:
+        ins: C. Huitema
+        name: Christian Huitema
+        org: Microsoft
+      date: January 2015
+
+  raiciu-semi:
+      title: "Good Cop, Bad Cop: Forcing Middleboxes to Cooperate  (https://www.iab.org/wp-content/IAB-uploads/2015/01/ninja.pdf)"
+      author:
+        -
+          ins: C. Raiciu
+        -
+          ins: V. Olteanu
+        -
+          name: R. Stoenescu
+      date: January 2015
+  welzl-semi:
+      title: "Ossification: a result of not even trying? (https://www.iab.org/wp-content/IAB-uploads/2014/12/semi2015_welzl.pdf)"
+      author:
+        -
+          ins: M. Welzl
+        -
+          ins: G. Fairhurst
+        -
+          ins: D. Ros
+      date: January 2015
+
 --- abstract
 
-The Internet Architecture Board (IAB) through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified by the workshop.
+The Internet Architecture Board (IAB) through its IP Stack Evolution program, the Internet Society, and the Swiss Federal Institute of Technology (ETH) Zurich hosted the Stack Evolution in a Middlebox Internet (SEMI) workshop in Zurich on 26-27 January 2015 to explore the ability to evolve the transport layer in the presence of middlebox- and interface-related ossification of the stack. The goal of the workshop was to produce architectural and engineering guidance on future work to break the logjam, focusing on incrementally deployable approaches with clear incentives to deployment both on the endpoints (in new transport layers and applications) as well as on middleboxes (run by network operators). This document summarizes the contributions to the workshop, provides an overview of the discussion at the workshop, as well as the outcomes and next steps identified by the workshop. The views and positions documented in this report are those of the workshop participants and do not necessarily reflect IAB views and positions.
 
 --- middle
 
@@ -93,7 +145,7 @@ have made it that way and the role of incentives in evolution. Many
 contributions were broadly split into two areas: middlebox measurement,
 classification, and approaches to defense against middlebox modification of
 packets; and approaches to support transport evolution. All accepted position
-papers are available at https://www.iab.org/activities/workshops/semi/.
+papers and detailed transcripts of discussion are available at https://www.iab.org/activities/workshops/semi/.
 
 The outcomes of the workshop are discussed in {{outcomes}}, and discuss progress after the workshop toward each of the identified work items as of the time of publication of this report.
 
@@ -154,29 +206,23 @@ protocols, incentives tend toward ignoring and or disabling optional features,
 as there is a positive feedback cycle between being rarely used and rarely
 implemented.
 
-[EDITOR'S NOTE: check transcript for points of discussion here]
-
 # The Role and Rule of Middleboxes
 
 Middleboxes are commonplace in the Internet and constrain the ability to deploy new protocols and protocol extensions. Engineering around this problem requires a "bestiary" of middleboxes, a classification of which kinds of impairments middleboxes cause and how often, according to Benoit Donnet {{edeline-semi}}.
 
-Even though the trend towards Network Function Visualization (NFV) allows for faster update-cycle of middleboxes and thereby more flexibility, the function provided by middleboxes will stay. In fact Service Chaining may lead to more and more add-ons to address and management a problem in the network which might further increase the complexity of network management. Ted Hardie warns that each instance may add a new queue and may increase the bufferbloat problem which is contra-productive for new emerging latency-sensitive applications. However, as further discussed at the workshop this new felexibilty also provides a chance to move functionalitly back to the end host and/or implemenent more appropriate in-network functionality that could benefit from additional information in application and path characteritics but might also require trust (domains) between different actors. (Especially in mobile networks an increasing trend of in-network functionality can be observed.)
+Even though the trend towards Network Function Visualization (NFV) allows for faster update-cycle of middleboxes and thereby more flexibility, the function provided by middleboxes will stay. In fact service chaining may lead to more and more add-ons to address and management a problem in the network which might further increase the complexity of network management. Ted Hardie {{hardie-semi}} warned that each instance may add a new queue and may increase the bufferbloat problem which is contra-productive for new emerging latency-sensitive applications. However, as further discussed at the workshop this new flexibility also provides a chance to move functionality back to the end host and/or implement more appropriate in-network functionality that could benefit from additional information in application and path characteristics, but might also require trust between different actors. Especially in mobile networks, an increasing trend of in-network functionality can be observed.
 
-Costin Raiciu states that middleboxes make the Internet unpredictable leading to a trade-off between efficiency and reachability. While constructive cooperation with middleboxes to establish a clear contract between the network and the end might be one approach to address this challenge, the alternative to force this contract might lead to extensive tunneling as illustrated by the "ninja tunneling" approach.
-
-[EDITOR'S NOTE: check transcript for points of discussion here]
+Costin Raiciu {{raiciu-semi}} stated that middleboxes make the Internet unpredictable, leading to a trade-off between efficiency and reachability. While constructive cooperation with middleboxes to establish a clear contract between the network and the end might be one approach to address this challenge, the alternative to force this contract might lead to extensive tunneling as illustrated by the "ninja tunneling" approach.
 
 # Evolving the Transport Layer
 
 For evolution in the transport layer itself various proposals have been discussed, reaching from the development of new protocols (potentially as user-level stacks) encapsulated in UDP as a transport identification sub-header to the use of TCP as a substrate where the semantics of TCP are relaxed (e.g. regarding reliability, ordering, flow control etc.) and a more flexible API is provided to the application.
 
-As experienced by David Black UDP encapsulation has to be adapted and separately discussed for every use case which can be a long (and painful) process. UDP encapsulation can be an approach to develop more specialized protocols than helps to address special needs of a certain applications, however, as presented by Brian Trammell and brought in by Stuart Cheshire just designing a new protocol instead of fixing/extending TCP might not always solve the problem.
+Discussion on evolution during the workshop divided amicably along two lines: working to fix the deployability of TCP extensions ("the TCP Liberation Front") versus working to build new encapulation-based mechanisms to allow wholly new protocols to be deployed ("the People's Front of UDP"). David Black {{black-semi}} pointed out that UDP encapsulation has to be adapted and separately discussed for every use case, which can be a long and painful process. UDP encapsulation can be an approach to develop more specialized protocols than helps to address special needs of certain applications. However, Stuart Cheshire {{cheshire-semi}} (as presented by Brian Trammell) pointed out that designing a new protocol instead of fixing/extending TCP might not always solve the problem.
 
-To address the extensibility problem of TCP, Inner Space was proposed by Bob Briscoe. In Inner Space the general principle is applied to extend the layer header within layer X+1 by proposing additional header/option space in the TCP payload that can not be seen by middleboxes.
+To address the extensibility problem of TCP, Bob Briscoe proposed Inner Space {{briscoe-semi}}. Here, the general principle is to extend layer X's header within layer X+1; in the case of TCP, additional TCP header and option space is provided within the TCP payload, such that it cannot presently be inspected and modified by middleboxes.
 
-Further instead of only focusing on those cases there new extensions and protocols are not deployable, Micheal Welzl points out that there are also a lot of paths in the network that are not ossified. To enable deployment on these paths an end host would need to probe or use a happy-eyeball-like approach and potentially fallback. The TAPS working group implements the first step to decouples applications from transport protocols allowing for the needed flexibility in the transport layer.
-
-[EDITOR'S NOTE: check transcript for points of discussion here]
+Further instead of only focusing on those cases there new extensions and protocols are not deployable, Micheal Welzl {{welzl-semi}} points out that there are also a lot of paths in the network that are not ossified. To enable deployment on these paths an end host would need to probe or use a happy-eyeball-like approach and potentially fallback. The TAPS working group implements the first step to decouples applications from transport protocols allowing for the needed flexibility in the transport layer.
 
 # Outcomes
 
@@ -300,4 +346,41 @@ support.
 
 The following people attended the SEMI workshop:
 
-Aaron Yi Ding, Aaron Falk, Barry Leiba, Benoit Donnet, Bob Briscoe, Brandon Williams, Ken Calvert, Costin Raiciu, Colin Perkins, David Black, Dave Thaler, Dan Wing, Felipe Huici, Mat Ford, Gorry Fairhurst, Russ Housely, Christian Huitema, Brian Trammell, Joe Hildebrand, Jana Ivengar, Lars Eggert, Eliot Lear, Marc Blanchet, Mary Barns, Michael Welzl, Mirja Kuehlewind, Martin Stiemerling, Miroslav Ponec, Erik Nordmark, Philipp Schmidt, Bernhard Plattner, Richard Barnes, Spencer Dawkins, Szilveszter Nadas, Ted Hardie, Dan Wing, and Xing Li. Additionally, Eric Rescorla and Stuart Cheshire contributed to the workshop but were unable to attend.
+Mary Barnes,
+Richard Barnes,
+David Black,
+Marc Blanchet,
+Bob Briscoe,
+Ken Calvert,
+Spencer Dawkins,
+Benoit Donnet,
+Lars Eggert,
+Gorry Fairhurst,
+Aaron Falk,
+Mat Ford,
+Ted Hardie,
+Joe Hildebrand,
+Russ Housley,
+Felipe Huici,
+Christian Huitema,
+Jana Iyengar,
+Mirja Kuehlewind,
+Eliot Lear,
+Barry Leiba,
+Xing Li,
+Szilveszter Nadas,
+Erik Nordmark,
+Colin Perkins,
+Bernhard Plattner,
+Miroslav Ponec,
+Costin Raiciu,
+Philipp Schmidt,
+Martin Stiemerling,
+Dave Thaler,
+Brian Trammell,
+Michael Welzl,
+Brandon Williams,
+Dan Wing, and
+Aaron Yi Ding.
+
+Additionally, Stuart Cheshire and Eric Rescorla contributed to the workshop but were unable to attend.

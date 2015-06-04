@@ -1,4 +1,4 @@
-NAME=draft-trammell-semi-report-00
+NAME=draft-iab-semi-report-00
 MD=kramdown-rfc2629
 X2R=xml2rfc
 CF=cupsfilter
